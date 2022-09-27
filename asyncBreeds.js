@@ -8,8 +8,12 @@ const breedDetailsFromFile = function(breed, func) {
 
     console.log("In readFile's Callback: it has the data.");
 
-    if (!error) func(data);
+    if (!error) {
+      func(data);
+    } else {
+      func(undefined);
+    }
   });
 };
 
-const bombay = breedDetailsFromFile('Bombay', breed => {console.log(`Return value: ${breed}`)});
+module.exports = breedDetailsFromFile;
